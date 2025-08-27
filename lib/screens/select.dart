@@ -11,7 +11,6 @@ class SelectPage extends StatefulWidget {
 }
 
 class _SelectPageState extends State<SelectPage> {
-
   @override
   Widget build(BuildContext context) {
     final repository = TimeRepository();
@@ -35,9 +34,38 @@ class _SelectPageState extends State<SelectPage> {
                 final time = times[index];
                 return GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pop(context, time);
                   },
-                  child: Text("data"),
+                  child: Card(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            time.logo,
+                            width: 40,
+                            height: 40,
+                            fit: BoxFit.contain,
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Text(
+                              time.name,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          const Icon(Icons.arrow_forward_ios, size: 16),
+                        ],
+                      ),
+                    ),
+                  ),
                 );
               },
             );

@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 class TimeRepository {
   final String jsonPath;
 
-  TimeRepository({this.jsonPath = '/assets/data/times.json'});
+  TimeRepository({this.jsonPath = 'assets/data/times.json'});
   
     Future<List<Time>> fetchTime() async {
     final jsonString = await rootBundle.loadString(jsonPath);
